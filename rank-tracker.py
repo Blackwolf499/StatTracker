@@ -1,10 +1,26 @@
 import time
 import datetime
-from datetime import date
+
+# Selenium related imports
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
+
+"""
+This Project was created by Kirwin Webb, 01/02/2022
+
+This is a global ranking tracker for tryhackme.com,
+Logs any changes in global rank and saves the collected data 
+so I can later use it for some data science
+
+I typically run this script as I'm studying on tryhackme,
+as it allows me to see the change in rank as I progress and complete
+tasks and questions, it's a helpful way to motivate me.
+
+It also shows if how much I've gone down in rank from inactivity.
+
+"""
 
 # Disables web browser display
 options = Options()
