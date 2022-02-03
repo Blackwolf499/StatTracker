@@ -6,10 +6,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 
+# Disables web browser display
 options = Options()
 options.headless = True
+
+# Url to visit 
 url = "https://tryhackme.com/p/Blackwolf"
 service = Service("/home/blackwolf/scripts/python/webdrivers/geckodriver/geckodriver")
+
 browser = webdriver.Firefox(options=options, service=service)
 browser.get(url)
 flag = True
