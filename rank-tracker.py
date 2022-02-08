@@ -72,4 +72,4 @@ while flag:
             print("Score updated! Position changed by: " + str(pos_dif))    
     else:
         print("Score hasn't changed, sleeping for 180s...")
-        time.sleep(5)
+        time.sleep(180)
