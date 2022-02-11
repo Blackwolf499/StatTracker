@@ -6,9 +6,10 @@ A way in which I can improve my webscraping capabalities and a method in which I
 
 rank-tracker.py:
 - Pulls global ranking from TryHackMe.com
-- Stores rank
+- Stores rank in a .csv
 - Stores when rank change occured
 - Displays change of rank dynamically
+- Displays daily change of rank
 
 Future Plans:
 
