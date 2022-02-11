@@ -71,11 +71,11 @@ def daily_ladder():
             if dateVal == str(datetime.date.today()) and todays_score == 0:
                 todays_score = int(scoreVal)
                 found_latest = True
-                print("Todays Starting Score:", todays_score)
+                # print("Todays Starting Score:", todays_score)
             
             # Records difference in rank for todays date occurences
             elif dateVal == str(datetime.date.today()):
-                daily_increase += todays_score - int(scoreVal)
+                daily_increase = todays_score - int(scoreVal)
 
     # Returning difference in score from first val of todays work
     return daily_increase
@@ -100,7 +100,7 @@ while flag:
 
             # Close file to avoid erroring out
             file.close()
-            print("Score updated! Position changed by: ", str(pos_dif), "           Daily Ladder:", daily_ladder())
+            print("Score updated! Position changed by: ", str(pos_dif), "             Daily Ladder:", daily_ladder())
     else:
         print("Score hasn't changed, sleeping for 180s...           Daily Ladder:", daily_ladder() )
         time.sleep(180)
