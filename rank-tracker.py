@@ -1,6 +1,5 @@
 import time
 import datetime
-
 # Selenium related imports
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -47,8 +46,40 @@ def last_score_stored():
     with open("pandas_data.csv", "r") as file:
         lines = file.read().splitlines()
         rank_saved = int(list(lines[-1].split(" "))[0])
-    return int(rank_saved)
+    return int(rank_saved) 
 
+
+# This function is for a daily score increase tracker, monitor how much your score
+# Has increased by in todays period of work.
+def daily_ladder():
+    # Initialising variables
+    daily_increase = 0
+    todays_score = 0
+    
+    # Reading log file
+    with open("pandas_data.csv", "r") as file:
+        lines = file.read().splitlines()
+        
+        # Looping over every line in log file
+        for line in lines:
+
+            # Updating date and score value every new line
+            dateVal = line.split(" ")[1]
+            scoreVal = line.split(" ")[0]
+            
+            # Checking for first appearance of current date, sets starting score val 
+            if dateVal == str(datetime.date.today()) and todays_score == 0:
+                todays_score = int(scoreVal)
+                found_latest = True
+                print("Todays Starting Score:", todays_score)
+            
+            # Records difference in rank for todays date occurences
+            elif dateVal == str(datetime.date.today()):
+                daily_increase += todays_score - int(scoreVal)
+
+    # Returning difference in score from first val of todays work
+    return daily_increase
+    
 # Writing data to a file in a while loop:
 while flag:
     # Calling data_fetch() func to periodically update rank & percentile
@@ -69,7 +100,7 @@ while flag:
 
             # Close file to avoid erroring out
             file.close()
-            print("Score updated! Position changed by: " + str(pos_dif))    
+            print("Score updated! Position changed by: ", str(pos_dif), "           Daily Ladder:", daily_ladder())
     else:
-        print("Score hasn't changed, sleeping for 180s...")
+        print("Score hasn't changed, sleeping for 180s...           Daily Ladder:", daily_ladder() )
         time.sleep(180)
