@@ -43,7 +43,7 @@ def data_fetch():
 
 # Reading score before writing (to prevent duplicates)
 def last_score_stored():
-    with open("pandas_data.csv", "r") as file:
+    with open("/home/blackwolf/scripts/github/StatTracker/pandas_data.csv", "r") as file:
         lines = file.read().splitlines()
         rank_saved = int(list(lines[-1].split(" "))[0])
     return int(rank_saved) 
@@ -57,7 +57,7 @@ def daily_ladder():
     todays_score = 0
     
     # Reading log file
-    with open("pandas_data.csv", "r") as file:
+    with open("/home/blackwolf/scripts/github/StatTracker/pandas_data.csv", "r") as file:
         lines = file.read().splitlines()
         
         # Looping over every line in log file
@@ -89,7 +89,7 @@ while flag:
     # Comparing updated score to lastest saved score in rank-data.txt
     # If the value is different it will append it to file, avoiding duplicate data
     if(last_score_stored() != int(rank)):
-        with open("pandas_data.csv", "a") as file:
+        with open("/home/blackwolf/scripts/github/StatTracker/pandas_data.csv", "a") as file:
             
             # Calc difference in rank postition
             pos_dif = last_score_stored() - int(rank) 
