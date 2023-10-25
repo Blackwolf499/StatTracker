@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 
 """
-This Project was created by Kirwin Webb, 01/02/2022
+This Project was created by BlackWolf, 01/02/2022
 
 This is a global ranking tracker for tryhackme.com,
 Logs any changes in global rank and saves the collected data 
